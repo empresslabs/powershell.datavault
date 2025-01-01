@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="../../Empress.Labs.props"/>
+  <Import Project="../../Empress.Labs.targets"/>
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <DefineConstants Condition="'$(EnableDI)' == 'true'">$(DefineConstants);ENABLE_DI</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
+    <None Include="..\..\LICENSE.md" Pack="true" PackagePath="\"/>
+  </ItemGroup>
+
+  <PropertyGroup Label="Package">
+    <Authors>Bruno Sales</Authors>
+    <Description>Provides a simple way to deal with SQLite databases for PowerShell binary modules.</Description>
+    <Copyright>Copyright (c) 2025 Bruno Sales &lt;me@baliestri.dev&gt;</Copyright>
+    <Company>EmpressLabs</Company>
+    <PackageId>Empress.Labs.PowerShell.DataVault</PackageId>
+    <PackageProjectUrl>https://github.com/empresslabs/powershell.datavault</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <RepositoryUrl>https://github.com/empresslabs/powershell.datavault.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>powershell;data;vault;datavault;sqlite;database;empresslabs;empress;labs</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="$(AssemblyName).UnitTesting"/>
+    <InternalsVisibleTo Include="$(AssemblyName).EndToEndTesting"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Empress.Labs.PowerShell.Common" Version="0.1.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.0" Condition="'$(EnableDI)' == 'true'"/>
+    <PackageReference Include="sqlite-net-pcl" Version="1.9.172"/>
+    <PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.10"/>
+    <PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.10"/>
+  </ItemGroup>
+
+</Project>
