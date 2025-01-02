@@ -1,6 +1,6 @@
 # ![logo][0]
 
-This library provides a simple way to deal with SQLite databases for PowerShell.
+This library provides a simple way to deal with SQLite databases for PowerShell binary modules.
 
 ## Installation
 
