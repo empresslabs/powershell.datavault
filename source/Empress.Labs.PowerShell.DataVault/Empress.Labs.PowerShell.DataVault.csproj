@@ -10,7 +10,6 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-    <DefineConstants Condition="'$(EnableDI)' == 'true'">$(DefineConstants);ENABLE_DI</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
@@ -39,7 +38,7 @@
 
   <ItemGroup>
     <PackageReference Include="Empress.Labs.PowerShell.Common" Version="0.2.0"/>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.0" Condition="'$(EnableDI)' == 'true'"/>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.0" />
     <PackageReference Include="sqlite-net-pcl" Version="1.9.172"/>
     <PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.10"/>
     <PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.10"/>
