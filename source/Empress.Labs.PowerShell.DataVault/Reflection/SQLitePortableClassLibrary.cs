@@ -2,6 +2,7 @@
 // See the LICENSE file in the repository root for full license text.
 
 using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using Empress.Labs.PowerShell.Common.IO;
 
@@ -16,6 +17,9 @@ namespace Empress.Labs.PowerShell.DataVault.Reflection;
 /// </remarks>
 [SuppressMessage("ReSharper", "InconsistentNaming")]
 internal static class SQLitePortableClassLibrary {
+  private static readonly object _resolverLock = new();
+  private static bool _resolverSet;
+
   /// <summary>
   ///   Tries to load the native SQLite library based on the platform.
   /// </summary>
@@ -134,6 +138,13 @@ internal static class SQLitePortableClassLibrary {
       throw new FileNotFoundException($"The file {libraryPath} does not exist.");
     }
 
+    lock (_resolverLock) {
+      if (!_resolverSet) {
+        NativeLibrary.SetDllImportResolver(typeof(SQLitePortableClassLibrary).Assembly, ResolveLibrary);
+        _resolverSet = true;
+      }
+    }
+
     var handle = dlopen(libraryPath, RTLD_NOW);
 
     if (handle != IntPtr.Zero) {
@@ -143,10 +154,25 @@ internal static class SQLitePortableClassLibrary {
     var errorMessage = Marshal.PtrToStringAnsi(dlerror());
     throw new DllNotFoundException($"Failed to load the library {libraryPath}: {errorMessage}");
 
-    [DllImport("libdl.so")]
+    [DllImport("libdl")]
     static extern IntPtr dlopen(string filename, int flags);
 
-    [DllImport("libdl.so")]
+    [DllImport("libdl")]
     static extern IntPtr dlerror();
+
+    static IntPtr ResolveLibrary(string libraryName, Assembly assembly, DllImportSearchPath? searchPath) {
+      if (libraryName != "libdl") {
+        return IntPtr.Zero;
+      }
+
+      const string LIBDL_PATH = "/lib/libdl.so";
+      const string LIBDL2_PATH = "/lib/libdl.so.2";
+
+      return File.Exists(LIBDL_PATH)
+        ? NativeLibrary.Load(LIBDL_PATH, assembly, searchPath)
+        : File.Exists(LIBDL2_PATH)
+          ? NativeLibrary.Load(LIBDL2_PATH, assembly, searchPath)
+          : IntPtr.Zero;
+    }
   }
 }
