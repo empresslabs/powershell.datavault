@@ -38,7 +38,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Empress.Labs.PowerShell.Common" Version="0.1.1" />
+    <PackageReference Include="Empress.Labs.PowerShell.Common" Version="0.2.0"/>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.0" Condition="'$(EnableDI)' == 'true'"/>
     <PackageReference Include="sqlite-net-pcl" Version="1.9.172"/>
     <PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.10"/>
