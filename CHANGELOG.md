@@ -1,10 +1,21 @@
 # ![logo](https://raw.githubusercontent.com/empresslabs/powershell.datavault/refs/heads/main/.github/assets/logo.svg)
 
+## [0.1.2](https://github.com/empresslabs/powershell.datavault/compare/v0.1.1..v0.1.2) - 2025-01-02
+
+### 🐛 Bug Fixes
+
+- Dynamically find the libdl.so library - ([71a320f](https://github.com/empresslabs/powershell.datavault/commit/71a320fda25189eef08d983cb91480a8cb9b92ed))
+
+
 ## [0.1.1](https://github.com/empresslabs/powershell.datavault/compare/v0.1.0..v0.1.1) - 2025-01-02
 
 ### 🐛 Bug Fixes
 
 - Add libdl.so.2 support - ([074afa4](https://github.com/empresslabs/powershell.datavault/commit/074afa46d326bf0179bdcf4f3160998b61e825b9))
+
+### ⚙️ Miscellaneous Tasks
+
+- Generate changelog - ([3a53ab9](https://github.com/empresslabs/powershell.datavault/commit/3a53ab91dff91c7d7ccb69821e60dd8e95c5a055))
 
 
 ## [0.1.0] - 2025-01-02
