@@ -10,6 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		cliff.toml = cliff.toml
 		LICENSE.md = LICENSE.md
 		README.md = README.md
+		CHANGELOG.md = CHANGELOG.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Properties", "Properties", "{3F958686-1F1B-4B98-8FF0-8461DA7A24C5}"
@@ -22,15 +23,36 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{B2FA31
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{0868C284-D792-43AC-8D80-273AC37F0277}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Empress.Labs.Nuke.Build", "source\Empress.Labs.Nuke.Build\Empress.Labs.Nuke.Build.csproj", "{64141A33-3720-437D-B830-292A4EB090C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Empress.Labs.PowerShell.DataVault", "source\Empress.Labs.PowerShell.DataVault\Empress.Labs.PowerShell.DataVault.csproj", "{398C33A5-9B74-48FC-B768-0FEE14568AAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Empress.Labs.PowerShell.DataVault.UnitTesting", "testing\Empress.Labs.PowerShell.DataVault.UnitTesting\Empress.Labs.PowerShell.DataVault.UnitTesting.csproj", "{1B925AB2-85B7-4985-BADF-4B60C4C4A51F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{64141A33-3720-437D-B830-292A4EB090C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64141A33-3720-437D-B830-292A4EB090C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{398C33A5-9B74-48FC-B768-0FEE14568AAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{398C33A5-9B74-48FC-B768-0FEE14568AAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{398C33A5-9B74-48FC-B768-0FEE14568AAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{398C33A5-9B74-48FC-B768-0FEE14568AAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B925AB2-85B7-4985-BADF-4B60C4C4A51F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B925AB2-85B7-4985-BADF-4B60C4C4A51F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B925AB2-85B7-4985-BADF-4B60C4C4A51F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B925AB2-85B7-4985-BADF-4B60C4C4A51F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3F958686-1F1B-4B98-8FF0-8461DA7A24C5} = {6F9AA1C5-9F6C-473E-BA19-7D4576E4AE30}
+		{64141A33-3720-437D-B830-292A4EB090C6} = {B2FA31C3-EFFD-4E2D-88C5-810A1FD64C4F}
+		{398C33A5-9B74-48FC-B768-0FEE14568AAF} = {B2FA31C3-EFFD-4E2D-88C5-810A1FD64C4F}
+		{1B925AB2-85B7-4985-BADF-4B60C4C4A51F} = {0868C284-D792-43AC-8D80-273AC37F0277}
 	EndGlobalSection
 EndGlobal
